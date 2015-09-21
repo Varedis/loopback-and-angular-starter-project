@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     rev = require('gulp-rev'),
     replace = require('gulp-replace'),
-    gulpAngularExtender = require('gulp-angular-extender');
+    gulpAngularExtender = require('gulp-angular-extender'),
+    revOutdated = require('gulp-rev-outdated');
 
 /******************************
  * SASS
@@ -70,6 +71,11 @@ gulp.task('clean', ['usemin'], function() {
     gulp.src('./client/index.html')
         .pipe(replace(/(<!--\s*inject:js\s*-->\s*)(\n*)(.*)(\n*)(\s*)(<!--\s*endinject\s*-->)/g, '$1$6'))
         .pipe(gulp.dest('./client'));
+
+    gulp.src(['./client/build/*.*'], { read: false })
+        .pipe(revOutdated(1))
+        .pipe(clean());
+
 });
 
 gulp.task('watch', function() {
