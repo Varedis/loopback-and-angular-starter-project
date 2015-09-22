@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     replace = require('gulp-replace'),
     gulpAngularExtender = require('gulp-angular-extender'),
-    revOutdated = require('gulp-rev-outdated');
+    revOutdated = require('gulp-rev-outdated'),
+    babel = require('gulp-babel');
 
 /******************************
  * SASS
@@ -48,7 +49,7 @@ gulp.task('usemin', ['inject-templates'], function() {
     return gulp.src('./client/index.html')
         .pipe(usemin({
             css: [minifyCss(), 'concat', rev()],
-            js: [ngAnnotate(), uglify(), rev()],
+            js: [ngAnnotate(), babel(), uglify(), rev()],
             assets: [rev()]
         }))
         .pipe(gulp.dest('./client/build'));
@@ -72,7 +73,7 @@ gulp.task('clean', ['usemin'], function() {
         .pipe(replace(/(<!--\s*inject:js\s*-->\s*)(\n*)(.*)(\n*)(\s*)(<!--\s*endinject\s*-->)/g, '$1$6'))
         .pipe(gulp.dest('./client'));
 
-    gulp.src(['./client/build/*.*'], { read: false })
+    return gulp.src(['./client/build/*.*'], { read: false })
         .pipe(revOutdated(1))
         .pipe(clean());
 
