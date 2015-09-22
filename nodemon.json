@@ -1,3 +1,4 @@
 {
-  "ext": "js,json,min.js"
+  "ext": "js,json,min.js",
+  "ignore": "client/"
 }
