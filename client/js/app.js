@@ -13,10 +13,15 @@ angular
                 templateUrl: 'js/sections/auth/login.tpl.html',
                 controller: 'AuthLoginController'
             })
+            .state('forbidden', {
+                url: '/forbidden',
+                templateUrl: 'js/sections/auth/forbidden.tpl.html'
+            })
             .state('home', {
                 url: '/home',
                 templateUrl: 'js/sections/home/home.tpl.html',
-                controller: 'HomeController'
+                controller: 'HomeController',
+                authenticate: true
             });
 
         $urlRouterProvider.otherwise('login');
