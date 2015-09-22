@@ -2,5 +2,12 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongoDB": {
+    "name": "mongoDB",
+    "connector": "mongodb",
+    "host": "localhost",
+    "port": "27017",
+    "database": "loopback-and-angular-starter-project"
   }
 }

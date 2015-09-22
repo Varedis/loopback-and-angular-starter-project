@@ -12,17 +12,12 @@
       }
     }
   },
-  "session": {
-  },
-  "auth": {
-  },
-  "parse": {
-  },
-  "routes": {
-  },
+  "session": {},
+  "auth": {},
+  "parse": {},
+  "routes": {},
   "files": {
-    "loopback#static": {
-    }
+    "loopback#static": {}
   },
   "final": {
     "loopback#urlNotFound": {}
