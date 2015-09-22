@@ -7,10 +7,8 @@ angular
             password: 'foobar'
         };
 
-        $scope.login = function() {
+        $scope.login = () => {
             AuthService.login($scope.user.email, $scope.user.password)
-                .then(function() {
-                    $state.go('home');
-                })
+                .then(() => $state.go('home'))
         }
     });

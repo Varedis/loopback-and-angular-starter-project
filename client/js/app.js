@@ -6,7 +6,7 @@ angular
         'app.services'
     ])
 
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(($stateProvider, $urlRouterProvider) => {
         $stateProvider
             .state('login', {
                 url: '/login',
@@ -22,8 +22,8 @@ angular
         $urlRouterProvider.otherwise('login');
     })
 
-    .run(function($rootScope, $state) {
-        $rootScope.$on('$stateChangeStart', function(event, next) {
+    .run(($rootScope, $state) => {
+        $rootScope.$on('$stateChangeStart', (event, next) => {
             if(next.authenticate && !$rootScope.currentUser) {
                 event.preventDefault();
                 $state.go('forbidden');
