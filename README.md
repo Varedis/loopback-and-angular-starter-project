@@ -18,6 +18,7 @@ To get started with the project you will need to run the following commands.
 
     git clone https://github.com/Varedis/loopback-and-angular-starter-project.git
     cd loopback-and-angular-starter-project
+    bower install
     npm install
     gulp
     nodemon
