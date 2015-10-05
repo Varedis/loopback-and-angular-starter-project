@@ -45,7 +45,7 @@ gulp.task('inject-templates', ['create-templates'], function() {
         .pipe(gulp.dest('./client/'));
 });
 
-gulp.task('usemin', ['inject-templates'], function() {
+gulp.task('usemin', ['sass', 'inject-templates'], function() {
     return gulp.src('./client/index.html')
         .pipe(usemin({
             css: [minifyCss(), 'concat', rev()],
@@ -65,7 +65,7 @@ gulp.task('add-dependencies', ['usemin'], function() {
         .pipe(gulp.dest('./client/build'));
 });
 
-gulp.task('clean', ['usemin'], function() {
+gulp.task('clean', ['add-dependencies', 'usemin'], function() {
     gulp.src('./client/js/app.templates.js', { read: false })
         .pipe(clean());
 
