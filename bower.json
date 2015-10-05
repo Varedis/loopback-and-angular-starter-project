@@ -1,0 +1,14 @@
+{
+  "name": "loopback-and-angular-starter-project",
+  "version": "1.0.0",
+  "authors": [
+    "Rob Scott <robert.scott46@btinternet.com>"
+  ],
+  "description": "",
+  "dependencies": {
+    "angular-material": "~0.11.2",
+    "angular-resource": "~1.4.7",
+    "angular-ui-router": "~0.2.15"
+  },
+  "devDependencies": {}
+}
