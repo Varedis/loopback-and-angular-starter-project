@@ -50,7 +50,7 @@ gulp.task('usemin', ['inject-templates'], function() {
         .pipe(usemin({
             css: [minifyCss(), 'concat', rev()],
             js: [babel(), ngAnnotate(), uglify(), rev()],
-            assets: [rev()]
+            assets: [uglify(), rev()]
         }))
         .pipe(gulp.dest('./client/build'));
 });
