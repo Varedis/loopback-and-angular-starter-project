@@ -5,20 +5,24 @@
     <meta name="viewport" content="initial-scale=1" />
     <title>Loopback and Angular starter project</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <!-- build:css assets/css/styles.css -->
     <link rel="stylesheet" href="css/skeleton.css" />
     <!-- endbuild -->
 </head>
-<body>
+<body layout="column" ng-cloak>
     <md-toolbar layout="row">
         <div class="md-toolbar-tools">
         <h1>Loopback and Angular starter project</h1>
         </div>
     </md-toolbar>
-
-    <md-content layout-padding>
-        <main ui-view=""></main>
-    </md-content>
+    <div layout="row" flex>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+                <main ui-view=""></main>
+            </md-content>
+        </div>
+    </div>
 
     <!-- build:assets assets.min.js -->
     <!-- ASSETS -->

@@ -4,6 +4,13 @@ angular
     .controller('AuthLoginController', ($scope, $state, AuthService) => {
         $scope.login = () => {
             AuthService.login($scope.user.email, $scope.user.password)
-                .then(() => $state.go('home'))
-        }
+                .then((response) => {
+                    if (response.error) {
+                        $scope.error = response.error;
+                        return;
+                    }
+
+                    return $state.go('home');
+                });
+        };
     });
